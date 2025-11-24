@@ -27,7 +27,16 @@ public class CourseService {
 
   public List<CourseInfoDto> getCourseDayOfWeek(DayOfWeek dayOfWeek) {
     // TODO: 과제 구현 부분
-    return new ArrayList<>();
+    List<Course> courses = courseRepository.getCourseDayOfWeek(dayOfWeek);
+    List<CourseInfoDto> result = new ArrayList<>();
+
+    for (Course course : courses) {
+      CourseInfoDto dto = new CourseInfoDto(course);  // Course → CourseInfoDto 변환
+      result.add(dto);
+    }
+
+    return result;
+    // return courses.stream().map(CourseInfoDto::new).toList();
   }
 
   public void changeFee(String studentName, int fee) {

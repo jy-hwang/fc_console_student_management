@@ -1,9 +1,10 @@
 package org.fastcampus.student_management.repo;
 
+import org.fastcampus.student_management.domain.Student;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
-import org.fastcampus.student_management.domain.Student;
 
 public class StudentRepository {
 

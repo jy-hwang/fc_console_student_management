@@ -29,6 +29,7 @@ public class Student {
   public String getAddress() {
     return address;
   }
+
   public boolean isActivate() {
     return activated;
   }
@@ -45,15 +46,15 @@ public class Student {
 //    this.activated = activated;
 //  }
 
-  public void activate(){
-    if(this.activated){
+  public void activate() {
+    if (this.activated) {
       throw new IllegalArgumentException();
     }
     this.activated = true;
   }
 
-  public void deactivate(){
-    if(!this.activated){
+  public void deactivate() {
+    if (!this.activated) {
       throw new IllegalArgumentException();
     }
     this.activated = false;

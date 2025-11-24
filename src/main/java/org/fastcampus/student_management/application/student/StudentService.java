@@ -13,7 +13,7 @@ public class StudentService {
   }
 
   public void saveStudent(StudentInfoDto studentInfoDto) {
-    Student student = new Student(studentInfoDto.getName(), studentInfoDto.getAge(), studentInfoDto.getAddress());
+    Student student = new Student(studentInfoDto.name(), studentInfoDto.age(), studentInfoDto.address());
     studentRepository.save(student);
   }
 

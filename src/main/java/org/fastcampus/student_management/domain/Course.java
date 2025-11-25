@@ -36,7 +36,7 @@ public class Course {
   }
 
   public int getFee() {
-    return fee;
+    return this.fee.getFee();
   }
 
   public DayOfWeek getDayOfWeek() {
@@ -48,6 +48,6 @@ public class Course {
   }
 
   public void changeFee(int fee) {
-    this.changeFee(fee);
+    this.fee.changeFee(fee);
   }
 }

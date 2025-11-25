@@ -9,12 +9,16 @@ public class CourseFee {
   }
 
   public void changeFee(int fee) {
-    this.fee = this.fee;
+    this.fee = fee;
   }
 
   private void checkFee(int fee) {
     if (fee < 0) {
       throw new IllegalArgumentException("수강료는 0원 이상이어야합니다.");
     }
+  }
+
+  public int getFee() {
+    return fee;
   }
 }

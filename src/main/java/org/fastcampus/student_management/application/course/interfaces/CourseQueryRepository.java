@@ -5,11 +5,7 @@ import org.fastcampus.student_management.domain.DayOfWeek;
 
 import java.util.List;
 
-public interface CourseRepository {
-  void save(Course course);
-
-  void saveCourses(List<Course> courses);
-
+public interface CourseQueryRepository {
   List<Course> getCourseDayOfWeek(DayOfWeek dayOfWeek);
 
   List<Course> getCourseListByStudent(String studentName);

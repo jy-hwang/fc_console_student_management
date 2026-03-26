@@ -5,9 +5,7 @@ import org.fastcampus.student_management.application.course.dto.CourseInfoDto;
 import org.fastcampus.student_management.application.course.interfaces.CourseCommandRepository;
 import org.fastcampus.student_management.application.student.StudentService;
 import org.fastcampus.student_management.application.student.dto.StudentInfoDto;
-import org.fastcampus.student_management.repo.CourseInmemoryCommandRepository;
-import org.fastcampus.student_management.repo.CourseJdbcQueryRepository;
-import org.fastcampus.student_management.repo.StudentRepository;
+import org.fastcampus.student_management.repo.*;
 import org.fastcampus.student_management.ui.UserInputType;
 import org.fastcampus.student_management.ui.course.CourseController;
 import org.fastcampus.student_management.ui.course.CoursePresenter;
@@ -17,9 +15,12 @@ import org.fastcampus.student_management.ui.student.StudentPresenter;
 public class Main {
 
   public static void main(String[] args) {
-    StudentRepository studentRepository = new StudentRepository();
-    CourseCommandRepository courseCommandRepository = new CourseInmemoryCommandRepository();
-    CourseJdbcQueryRepository courseQueryRepository = new CourseJdbcQueryRepository();
+    StudentStorage studentStorage = new StudentStorage();
+    CourseStorage courseStorage = new CourseStorage();
+
+    StudentRepository studentRepository = new StudentRepository(studentStorage);
+    CourseCommandRepository courseCommandRepository = new CourseInmemoryCommandRepository(courseStorage);
+    CourseJdbcQueryRepository courseQueryRepository = new CourseJdbcQueryRepository(courseStorage);
 
     StudentService studentService = new StudentService(studentRepository);
     CourseService courseService = new CourseService(courseCommandRepository, courseQueryRepository, studentService);

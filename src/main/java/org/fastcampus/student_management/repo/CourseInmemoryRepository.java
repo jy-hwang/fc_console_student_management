@@ -1,5 +1,6 @@
 package org.fastcampus.student_management.repo;
 
+import org.fastcampus.student_management.application.course.interfaces.CourseRepository;
 import org.fastcampus.student_management.domain.Course;
 import org.fastcampus.student_management.domain.DayOfWeek;
 
@@ -8,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CourseRepository {
+public class CourseInmemoryRepository implements CourseRepository {
 
   private final Map<String, Course> courseMap = new HashMap<>();
 
